@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* 主题变量 */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* 主题1：生机绿（默认） */
+  --theme-primary: 76 175 80;
+  --theme-secondary: 139 195 74;
+  --theme-accent: 255 152 0;
+  --theme-light: 200 230 201;
+  --theme-dark: 46 125 50;
+}
+
+[data-theme="green"] {
+  --theme-primary: 76 175 80;
+  --theme-secondary: 139 195 74;
+  --theme-accent: 255 152 0;
+  --theme-light: 200 230 201;
+  --theme-dark: 46 125 50;
+}
+
+[data-theme="orange"] {
+  --theme-primary: 255 152 0;
+  --theme-secondary: 255 183 77;
+  --theme-accent: 76 175 80;
+  --theme-light: 255 224 178;
+  --theme-dark: 230 81 0;
+}
+
+[data-theme="blue"] {
+  --theme-primary: 33 150 243;
+  --theme-secondary: 100 181 246;
+  --theme-accent: 255 152 0;
+  --theme-light: 187 222 251;
+  --theme-dark: 13 71 161;
+}
+
+[data-theme="brown"] {
+  --theme-primary: 121 85 72;
+  --theme-secondary: 161 136 127;
+  --theme-accent: 76 175 80;
+  --theme-light: 215 204 200;
+  --theme-dark: 78 52 46;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* 主题颜色 */
+  --color-theme-primary: rgb(var(--theme-primary));
+  --color-theme-secondary: rgb(var(--theme-secondary));
+  --color-theme-accent: rgb(var(--theme-accent));
+  --color-theme-light: rgb(var(--theme-light));
+  --color-theme-dark: rgb(var(--theme-dark));
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 自定义动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
